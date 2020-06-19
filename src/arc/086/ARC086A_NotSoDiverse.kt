@@ -5,20 +5,9 @@ fun main() {
     val k = input[1]
     val a = readLine()!!.split(" ").map { it.toInt() }.sorted()
 
-    val aMap = HashMap<Int, Int>()
+    val sortedMap = a.groupingBy { it }.eachCount().toList().sortedBy { it.second }.toMap()
 
-    for (x in a) {
-        aMap[x]?.let {
-            aMap[x] = it + 1
-        }
-
-        if (aMap[x] == null) {
-            aMap[x] = 1
-        }
-    }
-    val sortedMap = aMap.toList().sortedBy { it.second }.toMap()
-
-    var reduce = aMap.entries.size - k
+    var reduce = sortedMap.entries.size - k
     if (reduce <= 0) {
         print(0)
         return
