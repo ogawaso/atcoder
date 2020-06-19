@@ -1,5 +1,3 @@
-package practice
-
 /**
  * https://atcoder.jp/contests/practice/tasks/practice_1
  */
